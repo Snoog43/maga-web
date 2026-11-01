@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chocolat Maga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1793525519" />
+  <link rel="stylesheet" href="top100.css?v=1793525519" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="#top" class="logo">Chocolat<span>Maga</span></a>
+    <nav class="nav__links">
+      <a href="#selection">Sélection</a>
+      <a href="#grandcru">Top 100</a>
+      <a href="#carte">Carte</a>
+      <a href="#repertoire">Répertoire</a>
+      <a href="#base">Base mondiale</a>
+      <a href="#maisons">Maisons</a>
+      <a href="#savoir">Savoir</a>
+    </nav>
+    <label class="search">
+      <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="navSearch" type="search" placeholder="Chercher une tablette, une origine…" />
+    </label>
+    <button class="fav-btn" id="favToggle" title="Ma cave">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span id="favCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="drip drip--top" id="dripTop" aria-hidden="true"></svg>
+  <div class="wrap hero__in">
+    <div class="hero__text">
+      <p class="script">La vie est meilleure avec</p>
+      <h1>Tous les chocolats<br/><em>du monde.</em></h1>
+      <p class="lead">Un atlas personnel des tablettes, des origines et des maisons qui comptent. Des grands crus vénézuéliens aux bean-to-bar vietnamiens, tout est répertorié, noté et cartographié.</p>
+      <div class="hero__cta">
+        <a href="#selection" class="btn btn--gold">Voir la sélection <span class="arrow">→</span></a>
+        <a href="#carte" class="btn btn--ghost">Explorer la carte</a>
+      </div>
+      <div class="hero__stats" id="heroStats"></div>
+    </div>
+    <div class="hero__visual">
+      <div class="badge-round">
+        <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#circ">GRANDS CRUS • HAUTE QUALITÉ • GRANDS CRUS • </textPath></text></svg>
+        <strong>100%</strong><span>cacao</span>
+      </div>
+      <div class="hero__stack" id="heroStack"></div>
+      <div class="hero__card" id="heroCard"></div>
+    </div>
+  </div>
+  <svg class="drip drip--bottom" id="dripBottom" aria-hidden="true"></svg>
+</section>
+
+<!-- ============ SÉLECTION ============ -->
+<section class="section" id="selection">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">Sélection haute qualité</p>
+        <h2>Les tablettes d'exception</h2>
+      </div>
+      <div class="arrows">
+        <button class="arrow-btn" data-scroll="-1" aria-label="Précédent">←</button>
+        <button class="arrow-btn arrow-btn--fill" data-scroll="1" aria-label="Suivant">→</button>
+      </div>
+    </div>
+    <div class="rail" id="featuredRail"></div>
+  </div>
+</section>
+
+<!-- ============ SPOTLIGHT (vague bordeaux) ============ -->
+<section class="band" id="spotlight">
+  <svg class="wave wave--top" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80V40C240 0 480 70 720 40S1200 0 1440 30v50z"/></svg>
+  <div class="wrap band__in" id="spotlightIn"></div>
+  <svg class="wave wave--bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 0v40c240 40 480-30 720 0s480 40 720 10V0z"/></svg>
+</section>
+
+<!-- ============ TOP 100 — LE CLASSEMENT ============ -->
+<section class="t100" id="grandcru">
+  <div class="t100__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="t100__head">
+      <p class="t100__eyebrow">Le Classement · Chocolat Maga</p>
+      <h2 class="t100__title">Top 100 des chocolats noirs<br/><em>d'exception</em></h2>
+      <p class="t100__lead" id="tLead"></p>
+      <div class="t100__sources" id="tSources"></div>
+    </div>
+    <div class="t100__podium" id="tPodium"></div>
+    <div class="t100__bar">
+      <div class="t100__search">
+        <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="tSearch" type="search" placeholder="Chercher un chocolatier, une origine, un cru…" />
+      </div>
+      <select id="tOrigin"><option value="">Toutes origines</option></select>
+      <select id="tSource"><option value="">Toutes sources</option></select>
+      <span class="t100__count" id="tCount"></span>
+    </div>
+    <ol class="t100__list" id="tList"></ol>
+    <details class="t100__method"><summary>Comment ce classement est calculé</summary><ul id="tMethod"></ul></details>
+  </div>
+</section>
+
+<div class="tmodal" id="tModal" aria-hidden="true">
+  <div class="tmodal__bg" data-tclose></div>
+  <article class="tmodal__box" role="dialog" aria-modal="true">
+    <button class="tmodal__x" data-tclose aria-label="Fermer">×</button>
+    <div id="tModalBody"></div>
+  </article>
+</div>
+
+<!-- ============ CARTE ============ -->
+<section class="section" id="carte">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">Atlas</p>
+        <h2>La carte mondiale du cacao</h2>
+        <p class="sub">Les pays producteurs, colorés selon leur volume, et les chocolatiers du répertoire. Cliquez sur un pays pour découvrir son terroir et ses tablettes.</p>
+      </div>
+      <div class="seg" id="mapMode">
+        <button class="on" data-mode="prod">Production</button>
+        <button data-mode="tablets">Tablettes</button>
+        <button data-mode="base">Base mondiale</button>
+        <button data-mode="makers">Chocolatiers</button>
+      </div>
+    </div>
+    <div class="map-grid">
+      <div class="map-box">
+        <div id="map"></div>
+        <div class="map-legend" id="mapLegend"></div>
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+      <aside class="map-panel" id="mapPanel"></aside>
+    </div>
+    <div class="ranking">
+      <div>
+        <h3>Top producteurs <small>milliers de tonnes, est. 2023/24</small></h3>
+        <div id="prodChart" class="bars"></div>
+      </div>
+      <div>
+        <h3>Consommation <small>kg par habitant et par an, est.</small></h3>
+        <div id="consChart" class="bars bars--alt"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RÉPERTOIRE ============ -->
+<section class="section section--cream" id="repertoire">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">Répertoire</p>
+        <h2>Toutes les tablettes</h2>
+        <p class="sub" id="repCount"></p>
+      </div>
+    </div>
+    <div class="filters">
+      <input id="fSearch" type="search" placeholder="Nom, maison, note aromatique…" />
+      <select id="fType"><option value="">Tous types</option><option value="noir">Noir</option><option value="lait">Lait</option><option value="blanc">Blanc</option><option value="blond">Blond</option><option value="ruby">Ruby</option></select>
+      <select id="fGamme"><option value="">Toutes gammes</option><option value="grand-cru">Grand cru</option><option value="craft">Craft / bean-to-bar</option><option value="artisan">Artisan chocolatier</option><option value="grand-public">Grand public</option></select>
+      <select id="fOrigin"><option value="">Toutes origines</option></select>
+      <select id="fMaker"><option value="">Pays du fabricant</option></select>
+      <label class="range">Cacao ≥ <b id="fCacaoV">0</b> %<input id="fCacao" type="range" min="0" max="90" step="5" value="0" /></label>
+      <select id="fSort"><option value="rating">Mieux notées</option><option value="cacao">% cacao</option><option value="priceAsc">Prix ↑</option><option value="priceDesc">Prix ↓</option><option value="name">A → Z</option></select>
+      <button class="chip" id="fFav">♥ Ma cave</button>
+      <button class="chip chip--reset" id="fReset">Réinitialiser</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ============ BASE MONDIALE ============ -->
+<section class="section" id="base">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">Base mondiale des grands crus</p>
+        <h2>Toutes les tablettes notées du monde</h2>
+        <p class="sub" id="baseIntro"></p>
+      </div>
+      <a class="btn btn--line" style="color:var(--maroon)" href="https://flavorsofcacao.com/chocolate_database.html" target="_blank" rel="noopener">Source : Flavors of Cacao ↗</a>
+    </div>
+    <div class="kpis" id="baseKpis"></div>
+    <div class="ranking ranking--base">
+      <div><h3>Meilleures origines <small>note moyenne /4, au moins 25 tablettes</small></h3><div id="baseOrigins" class="bars"></div></div>
+      <div><h3>Meilleurs fabricants <small>note moyenne /4, au moins 10 tablettes</small></h3><div id="baseMakers" class="bars bars--alt"></div></div>
+    </div>
+    <div class="scale" id="baseScale"></div>
+    <div class="filters">
+      <input id="bSearch" type="search" placeholder="Fabricant, plantation, arôme…" />
+      <select id="bOrigin"><option value="">Toutes origines</option></select>
+      <select id="bLoc"><option value="">Pays du fabricant</option></select>
+      <select id="bRating"><option value="0">Toutes notes</option><option value="4">≥ 4 · Exceptionnel</option><option value="3.5">≥ 3,5 · Hautement recommandé</option><option value="3">≥ 3 · Recommandé</option></select>
+      <select id="bYear"><option value="">Toutes années</option></select>
+      <select id="bSort"><option value="rating">Mieux notées</option><option value="year">Plus récentes</option><option value="cacao">% cacao</option><option value="maker">Fabricant A → Z</option></select>
+    </div>
+    <p class="sub" id="bCount" style="margin:0 0 14px"></p>
+    <div class="table-wrap">
+      <table class="dbt">
+        <thead><tr><th>Note</th><th>Fabricant</th><th>Tablette / origine précise</th><th>Origine</th><th>%</th><th>Année</th><th>Arômes marquants</th><th>Ingr.</th></tr></thead>
+        <tbody id="bBody"></tbody>
+      </table>
+    </div>
+    <button class="btn btn--gold" id="bMore" style="margin:26px auto 0;display:flex">Afficher plus</button>
+  </div>
+</section>
+
+<!-- ============ MAISONS ============ -->
+<section class="band" id="maisons">
+  <svg class="wave wave--top" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80V30C300 70 520 0 760 30s460 40 680 0v50z"/></svg>
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light">Maisons à l'honneur</p>
+    <h2 class="light">Les maisons parisiennes</h2>
+    <div class="houses" id="houses"></div>
+  </div>
+  <svg class="wave wave--bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 0v30c260 50 520-20 760 10s460 30 680-10V0z"/></svg>
+</section>
+
+<!-- ============ SAVOIR ============ -->
+<section class="section" id="savoir">
+  <div class="wrap">
+    <p class="eyebrow">Savoir</p>
+    <h2>Comprendre le chocolat</h2>
+    <div class="tabs" id="tabs">
+      <button class="on" data-tab="varieties">Variétés</button>
+      <button data-tab="process">De la fève à la tablette</button>
+      <button data-tab="tasting">Dégustation</button>
+      <button data-tab="history">Histoire</button>
+      <button data-tab="glossary">Glossaire</button>
+    </div>
+    <div class="tab-panel on" id="tab-varieties"><div class="cards3" id="varieties"></div></div>
+    <div class="tab-panel" id="tab-process"><ol class="process" id="process"></ol></div>
+    <div class="tab-panel" id="tab-tasting">
+      <div class="tasting">
+        <div id="wheel" class="wheel"></div>
+        <div>
+          <h3>Déguster en 5 temps</h3>
+          <ol class="steps">
+            <li><b>Regarder.</b> Une surface brillante et uniforme signe un bon tempérage. Couleur : de l'acajou au presque noir.</li>
+            <li><b>Écouter.</b> Cassez : un « snap » net et sec. Un chocolat mou ou qui s'effrite a souffert.</li>
+            <li><b>Sentir.</b> Frottez le carré entre vos doigts pour libérer les arômes, puis respirez.</li>
+            <li><b>Laisser fondre.</b> Sans croquer, laissez le carré fondre sur la langue 20 à 30 secondes.</li>
+            <li><b>Mesurer la finale.</b> Combien de temps les arômes persistent-ils ? Les grands chocolats durent plus d'une minute.</li>
+          </ol>
+          <p class="tip">Conservez vos tablettes entre 15 et 18 °C, à l'abri de la lumière et des odeurs. Jamais au réfrigérateur.</p>
+          <p class="tip">Dégustez à température ambiante (≈ 20 °C), du plus doux au plus corsé, et rincez-vous la bouche à l'eau tiède entre deux.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-history"><div class="timeline" id="timeline"></div></div>
+    <div class="tab-panel" id="tab-glossary"><dl class="glossary" id="glossary"></dl></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div>
+      <a href="#top" class="logo logo--light">Chocolat<span>Maga</span></a>
+      <p>Chocolat Maga — un atlas personnel du chocolat.<br/>Prix indicatifs, productions estimées (ordre de grandeur ICCO).</p>
+    </div>
+    <div>
+      <h4>Sources</h4>
+      <a href="https://www.jeanpaulhevin.com/fr/" target="_blank" rel="noopener">Jean-Paul Hévin</a>
+      <a href="https://www.lamaisonduchocolat.com/fr_fr/chocolat" target="_blank" rel="noopener">La Maison du Chocolat</a>
+      <a href="https://www.icco.org" target="_blank" rel="noopener">ICCO</a>
+      <a href="https://flavorsofcacao.com" target="_blank" rel="noopener">Flavors of Cacao</a>
+    </div>
+    <div>
+      <h4>Explorer</h4>
+      <a href="#selection">Sélection</a><a href="#carte">Carte</a><a href="#repertoire">Répertoire</a><a href="#savoir">Savoir</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODALE ============ -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box" role="dialog">
+    <button class="modal__x" data-close aria-label="Fermer">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="data.js?v=1793525519"></script>
+<script src="foc.js?v=1793525519"></script>
+<script src="top100.js?v=1793525519"></script>
+<script src="images.js?v=1793525519"></script>
+<script src="app.js?v=1793525519"></script>
+</body>
+</html>
